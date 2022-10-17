@@ -32,7 +32,11 @@ function getProfil() {
 }
 
 function createSkills(skills) {
-	let skillsArr = skills.split(',').map((e) => e.trim());
+	let skillsArr = skills
+		.split(',')
+		.map((e) => e.trim())
+		.filter((e) => e.trim() !== '');
+	skillsArr = [...new Set(skillsArr)];
 	skillsContainer.innerHTML = '';
 	for (let i = 0; i < skillsArr.length; i++) {
 		let li = document.createElement('li');
