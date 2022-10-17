@@ -1,0 +1,46 @@
+//- Step element
+mixin step-list(symbol, number, title)
+  li(class="step-container")
+    .icon
+      .target-icon
+        span(class="material-symbols-outlined main-icon") #{symbol}
+        div(class="check-icon")
+          span(class="material-symbols-outlined") check
+    .info-step
+     h6(class="h6-title") step #{number}
+     span(class="step-target") #{title}
+
+//- Gender select
+mixin select-gender(gender)
+      div(class="gender" data-gender=gender)
+        span(class="material-symbols-outlined main-icon") #{gender}
+        span(class="gender-name") #{gender}
+
+//- Main input
+mixin main-input(pattern, key, icon, placeholder, msg, name)
+ .input-container
+    input(class="main-input left-abs right-abs" type=name placeholder=placeholder data-type=pattern data-info=key)
+    span(class="material-symbols-outlined abs-right-icon icon-check hidden") check
+    span(class="material-symbols-outlined abs-left-icon main-icon") #{icon} 
+    div(class="validation-msg hidden") #{msg}
+
+//- textarea
+
+mixin main-textarea(pattern, key, placeholder, msg)
+ .input-container
+    textarea(spellcheck="false" class="main-input" placeholder=placeholder data-type=pattern data-info=key)
+    div(class="validation-msg hidden") #{msg}
+
+//- Next btn
+mixin next-btn(id, target)
+ button(class="main-btn next-btn" id=id data-nextStep=target) Next
+
+//- Secondary btn
+mixin back-btn(id, target)
+ button(class="secondary-btn back-btn" id=id data-backTarget=target) back
+
+//- Scripts
+mixin scripts
+  script(src="../assets/js/tools.js")
+  script(src="../assets/js/form.js")
+  script(src="../assets/js/profile.js")

@@ -1,0 +1,157 @@
+include components/mixins.pug
+include components/countries.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Profile Creator
+        link(rel="stylesheet", href="../assets/css/page.css")
+        link(rel="stylesheet", href="../assets/css/form.css")
+        link(rel="stylesheet", href="../assets/css/profil.css")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css")
+        
+    body 
+     section(class="welcome section")
+      h1(class="h1-title") Profil Creator
+      p(class="welcome-description") I will create a simple profil for you.
+      button(class="btn main-btn pill" id="start-btn") Get started
+
+    main(class="steps-container section")
+     header(class="header-steps")
+       div(class="up-header")
+        h5(class="h5-title") Steps
+        span(class="material-symbols-outlined main-icon cursor" id="toggle-steps") unfold_more
+       ul(class="steps-list hidden-mobile")
+        .progress-container 
+         #progress
+        +step-list('person', 1, 'Basic information')
+        +step-list('tips_and_updates', 2, 'Advanced information')
+        +step-list('password', 3, 'Password')
+        +step-list('image', 4, 'Avatar')
+     section(class="step-content" id="basic")
+      p(class="current-step") Step 1 of 4
+      h2(class="h2-title") Basic information
+      .grp-inpts-label-container
+       span.label-grp About info
+       .line
+      .grp-inp
+       label.main-inp-label Gender
+       .gender-select
+        +select-gender("male")
+        +select-gender("female")
+
+      .grp-inp  
+       label.main-inp-label Full name
+       .fullName
+        +main-input("name", "firstName", "person", "First name", "First name must have at least 3 letters", "text")
+        +main-input("name", "lastName", "person", "Last name", "Last name must have at least 3 letters", "text")
+       label(class="main-inp-label") Country
+       +select-country
+      .grp-inpts-label-container(style="margin-top: 1.5rem;")
+       span.label-grp Contact info
+       .line
+      .grp-inp 
+       label.main-inp-label Email
+       +main-input("email", "email", "alternate_email", "Email", "Invalid email, example@example.com", "email")  
+       label.main-inp-label Phone number
+       +main-input("phone", "phone", "call", "Phone number", "Invalid number,must have at least 10 numbers", "text")
+      .btns-container
+       +next-btn("step1-next-btn", "advanced")
+
+     section(class="step-content" id="advanced")
+      p(class="current-step") Step 2 of 4
+      h2(class="h2-title") Advanced information
+      .grp-inpts-label-container(style="margin-top: 1.5rem;")
+       span.label-grp Description
+       .line
+      .grp-inp 
+       label.main-inp-label Bio
+       +main-textarea("bio", "bio", "Bio", "Bio cannot be empty")  
+       label.main-inp-label Skills
+       +main-textarea("skill", "skills", "Separated by commas", "Must have at least 1 skill")
+      .grp-inpts-label-container(style="margin-top: 1.5rem;margin-bottom: 1rem;")
+       span.label-grp Links
+       .line  
+      label.main-inp-label Github(optional)  
+      +main-input("", "github", "link", "Github link", "", "url")
+      .btns-container 
+      label.main-inp-label Instagram(optional)  
+      +main-input("", "instagram", "link", "Instagram link", "", "url")
+      label.main-inp-label Facebook(optional)  
+      +main-input("", "facebook", "link", "Facebook link", "", "url")
+      .btns-container 
+       +back-btn("back-step2","basic")
+       +next-btn("step2-next-btn", "passStep")
+       
+     section(class="step-content" id="passStep")
+      p(class="current-step") Step 3 of 4
+      h2(class="h2-title") Create a password
+      .grp-inpts-label-container(style="margin-top: 1.5rem;")
+       span.label-grp Private
+       .line
+      .grp-inp 
+       label.main-inp-label Password
+       +main-input("password", "password", "password", "Password", "Password too week", "password")
+       label.main-inp-label Confirm password
+       +main-input("", "confirm", "password", "Confirm password", "Password is not the same", "password")
+      .btns-container 
+       +back-btn("back-step3","advanced")
+       +next-btn("step3-next-btn", "avatar")
+
+     section(class="step-content" id="avatar")
+      p(class="current-step") Step 4 of 4
+      h2(class="h2-title") Profil picture
+      .grp-inpts-label-container(style="margin-top: 1.5rem;")
+       span.label-grp Avatar
+       .line
+      .upload-container 
+       span(class="material-symbols-outlined upload-icon") cloud_upload
+       input(type="file" id="img" accept="image/*" style="display: none;")
+       label(for="img" class="label-file") Browse an avatar
+      .btns-container 
+       +back-btn("back-step4","passStep")
+       +next-btn("step4-next-btn", "final")
+    section(class="see-profil section")
+     span(class="material-symbols-outlined final-step-icon") check_circle
+     h2(class="h2-title") Profil created
+     button(class="main-btn" id="see-profil-btn") See my profil
+    section(class="profil-section" id="profil-section")
+     .card
+      .about-profil
+       .avatar-container
+        img(class="user-avatar" src="../cinq.jpg")
+       h3(class="user-fullName")  Mohammed ali
+       span(class="user-country") from Morroco
+       p(class="user-bio") I am a full stack web developer
+       ul.user-social
+        li(class="social-list")
+         a #[i(class="social-item fab fa-instagram" data-name="instagram")]
+        li(class="social-list")
+         a #[i(class="social-item fab fa-facebook" data-name="facebook")]
+        li(class="social-list")
+         a #[i(class="social-item fab fa-github" data-name="github")]
+      h6(class="label-profil") Skills
+      ul.user-skills
+       li.user-skill HTML
+      h6(class="label-profil") Password
+      .password-profil
+       .password-container 
+        span(class="material-symbols-outlined main-icon abs-left-icon") lock
+        input(class="password-input left-abs right-abs" type="password" value="painbest")
+        span(class="material-symbols-outlined main-icon abs-right-icon cursor" id="toggle-pass") visibility
+      .contact-profil
+       h6(class="label-profil") Contact
+       ul.contact-menu 
+        li(class="contact-item") 
+         span(class="material-symbols-outlined main-icon") call
+         span(class="contact-info" id="phone-number") 0015455545
+        li(class="contact-item") 
+         span(class="material-symbols-outlined main-icon") alternate_email
+         span(class="contact-info" id="user-email") testing@gmail.com
+
+      
+    +scripts

@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+html{
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+input:focus, select:focus, button:focus, textarea:focus {
+  outline: 0;
+  border: 1px solid var(--main-color) !important;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* body */
+
+:root {
+    --textarea: 100px;
+    --body-bd: #f7f7f7;
+    --container: 800px;
+    --body-color: #111;
+    --h1-color: #2a2a2a;
+    --grey-color: #606060;
+    --main-color: #0f7cfa;
+    --main-dark--color: #0a6ad8;
+    --main-transition: .2s;
+}
+
+body {
+  overflow: hidden;
+  background-color: var(--body-bd);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: var(--body-color);
+  -webkit-tap-highlight-color: transparent;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Welcome page */
+
+.welcome {
+  display: flex;
+  height: 100vh;
+  padding: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome .h1-title {
+  color: var(--h1-color);
+  font-size: 4rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .welcome .h1-title {
+    font-size: 2rem;
+  }
+}
+
+.welcome-description {
+  color: var(--grey-color);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.main-btn {
+  background-color: var(--main-color);
+  color: white;
+  border: 0;
+  font-size: 1.3rem;
+  padding: .8rem 4rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.main-btn:hover {
+  background-color: var(--main-dark--color);
+}
+
+.main-btn:active {
+  transform: scale(.99);
+}
+
+/* active classes */
+
+.section.up {
+  margin-top: -100vh;
+}
+
+.main-icon {
+  color: var(--grey-color);
+  font-size: 1.6rem !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.select-container-input {
+  position: relative;
+}
+
+@keyframes down-out {
+  to {
+    transform: translateY(var(--input-height));
+    opacity: 0;
+  }
+}
+
+@keyframes up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--input-height));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-content.out {
+  animation: down-out .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.step-content.in {
+  animation: up-in .5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+textarea {
+  min-height: var(--textarea) !important;
+  overflow-y: auto;
+  padding: .5rem 1rem;
+  resize: none;
+}
+
+.secondary-btn {
+  color: var(--main-color);
+  background-color: transparent;
+  border: 0;
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Upload */
+
+.upload-container {
+  border: var(--border-input);
+  flex-direction: column;
+  border-style: dashed;
+  border-width: 2px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  margin-top: 2rem;
+}
+
+.upload-icon {
+  color: var(--grey-color);
+  font-size: 3rem !important;
+  margin-bottom: .5rem;
+}
+
+.label-file {
+  color: var(--main-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.label-file:hover {
+  text-decoration: underline;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+main {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.welcome , .see-profil, main{
+  transition: margin-top 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.label-file {
+  display: flex;
+  align-items: center;
+}
+
+.see-profil {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.see-profil .final-step-icon {
+  font-size: 5rem;
+  color: var(--main-color);
+}
+
+.see-profil h2 {
+  margin: 1.2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}

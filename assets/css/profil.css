@@ -1,0 +1,162 @@
+:root {
+
+}
+
+/* Profil section */
+
+.profil-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-y: auto !important;
+    background: linear-gradient(to bottom,#0f8cfa, #0facaf);
+    width: 100vw;
+    padding: 1.5rem;
+}
+
+/* Card */
+
+.card {
+    background-color: #fff;
+    border-radius: .5rem;
+    width: 600px;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    max-width: 100%;
+    padding-bottom: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.avatar-container {
+    width: 150px;
+    margin: 0 auto;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.user-avatar {
+    width: 100%;
+    height: auto;
+}
+
+.user-fullName {
+    margin: 1rem 0 .3rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--h1-color);
+}
+
+.user-bio {
+    font-size: 17px;
+    color: var(--grey-color);
+    line-height: 1.8;
+}
+
+.about-profil {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.social-item {
+    font-size: 2rem;
+    color: var(--grey-color);
+}
+
+.social-list {
+    margin: .5rem;
+}
+
+.user-social .social-list:first-of-type {
+    margin-left: 0 !important;
+}
+
+.user-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+}
+
+.user-skills {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.label-profil {
+    padding: 1.5rem 1.5rem .3rem 1.5rem;
+    font-size: 1rem;
+    text-align: start;
+    font-weight: 500;
+    color: var(--grey-color);
+    margin: .2rem;
+}
+
+.user-skill {
+    background-color: #f1f1f1;
+    color: rgb(48, 48, 48);
+    font-weight: 400;
+    border-radius: 50px;
+    padding: .5rem 2rem;
+    margin: .5rem .5rem 0 0;
+    text-align: center;
+}
+
+.user-skills .user-skill:first-child {
+    margin-left: 0 !important;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-input {
+    width: 100%;
+    border-radius: 3px;
+    min-height: 50px;
+    text-align: center;
+    font-size: 1rem !important;
+    font-family: inherit;
+    border: 1px solid #d1d4d7;   
+}
+
+.password-profil {
+    padding: 0 1.5rem 1.5rem 1.5rem !important;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-menu {
+    padding: .5rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.contact-item {
+    padding: .5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item .main-icon {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    width: 30px;
+    color: var(--h1-color) !important;
+    font-size: 1rem !important;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+}
+
+.contact-info {
+    margin-left: 1rem;
+    font-size: 17px;
+    color: var(--h1-color);
+}
+
+.social-item.active {
+    color: var(--main-color) !important;
+}
